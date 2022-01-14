@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Students</h1>
+
+<table class='my-table' id = "mainleft">
+  <thead class='my-tr'>
+    <tr class='my-tr'>
+      <th> Name </th>
+      <th> Marks 1 </th>
+      <th> Marks 2 </th>
+      <th> Marks 3 </th>
+      <th> Total </th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td style="text-align:center"><%= link_to "#{student.firstName} #{student.lastName}", student %><%= link_to image_tag("/icons8-edit-24.png"), edit_student_path(student) %><%= link_to image_tag("/icons8-delete-24.png"), student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="text-align:center"><%= student.marks1 %></td>
+        <td style="text-align:center"><%= student.marks2 %></td>
+        <td style="text-align:center"><%= student.marks3 %></td>
+        <td style="text-align:center"><%= student.total %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student', new_student_path %>

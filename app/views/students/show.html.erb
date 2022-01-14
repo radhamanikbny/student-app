@@ -1,0 +1,43 @@
+<div id ='mainleft'>
+  <p id="notice"><%= notice %></p>
+  <h3>Student Marks</h3>
+  <p>
+    <strong>Firstname:</strong>
+    <%= @student.firstName %>
+  </p>
+
+  <p>
+    <strong>Lastname:</strong>
+    <%= @student.lastName %>
+  </p>
+
+  <p>
+    <strong>Marks1:</strong>
+    <%= @student.marks1 %>
+  </p>
+
+  <p>
+    <strong>Marks2:</strong>
+    <%= @student.marks2 %>
+  </p>
+
+  <p>
+    <strong>Marks3:</strong>
+    <%= @student.marks3 %>
+  </p>
+
+  <p>
+    <strong>Total:</strong>
+    <%= @student.total %>
+  </p>
+  <div>
+    <% if @student.student_profile.nil? %>
+      <%= link_to 'Create Student Profile', new_student_profile_path(:student_id => @student.id)  %>
+    <% else %>
+      <%= link_to 'Show Student Profile', student_profile_path %>
+    <% end %>
+  </div>
+  <%= link_to 'Edit', edit_student_path(@student) %> |
+  <%= link_to 'Back', students_path %>
+</div>
+

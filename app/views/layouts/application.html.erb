@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>StudentApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div id="container">
+      <div id="menu">
+        <% if session[:user_id].nil? %>
+          <a href="/login">Login</a>
+        <% else %>
+          <a href="/logout">Logout</a>
+        <% end %>
+      </div>
+      <br />
+      <div id="topheader" style="width: 750px; height: 66px">
+        <h1>Student Marks Log</h1>
+      </div>
+      <div id="header"></div>
+      <div id="mainleft">
+        <%= yield %>
+      </div>
+
+      <br/>
+
+      <div id="footer">All Rights Reserved </div>
+    </div>
+  </body>
+
+  
+</html>
